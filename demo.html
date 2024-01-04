@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' knb-media:">
+    <title>WebView Communication</title>
+    <script>
+        function sendMessageToiOS() {
+            window.webkit.messageHandlers.invoke.postMessage("Hello from the webpage!");
+        }
+        
+        function invokeBack(response) {
+            console.log("Received response from native: " + response);
+        }
+    </script>
+    <script src="knb-media://client?pdf=https%3A%2F%2Ftk.cn%2Fresource%2Ftk%2Fwww%2Fresource%2Fcms%2F2015%2F07%2Fwx59.pdf"></script>
+</head>
+<body>
+    <button onclick="sendMessageToiOS()">Send Message to iOS</button>
+</body>
+</html>
+
